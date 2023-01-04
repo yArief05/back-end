@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 const cors = require('cors');
 // import mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/db_bagendit').
+mongoose.connect('mongodb+srv://sewa_tiket:sarif2002@cluster0.itiymh2.mongodb.net/db_bagendit?retryWrites=true&w=majority').
 catch(err => console.log(err));
 
 var indexRouter = require('./routes/index');

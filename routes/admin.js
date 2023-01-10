@@ -3,18 +3,16 @@ const adminController = require('../controllers/adminController');
 const { uploadSingle, uploadMultiple } = require('../middlewares/multer');
 const auth = require('../middlewares/auth');
 
-//router.get('/signin', adminController.viewSignin);
-//router.post('/signin', adminController.actionSignin);
-//router.use(auth);
-//router.get('/logout', adminController.actionLogout);
+router.get('/signin', adminController.viewSignin);
+router.post('/signin', adminController.actionSignin);
+router.use(auth);
+router.get('/logout', adminController.actionLogout);
 router.get('/dashboard', adminController.viewDashboard);
 // endpoint category
 router.get('/category', adminController.viewCategory);
 router.post('/category', adminController.addCategory);
 router.put('/category', adminController.editCategory);
 router.delete('/category/:id', adminController.deleteCategory);
-router.get('/user', adminController.viewUser);
-router.post('/user', adminController.addUser);
 // endpoint bank
 router.get('/bank', adminController.viewBank);
 router.post('/bank', uploadSingle, adminController.addBank);

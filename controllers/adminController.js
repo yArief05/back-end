@@ -12,7 +12,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs')
 
 module.exports = {
- /* viewSignin: async (req, res) => {
+  viewSignin: async (req, res) => {
     try {
       const alertMessage = req.flash('alertMessage');
       const alertStatus = req.flash('alertStatus');
@@ -59,10 +59,10 @@ module.exports = {
     }
   },
 
- actionLogout: (req, res) => {
+  actionLogout: (req, res) => {
     req.session.destroy();
     res.redirect('/admin/signin');
-  },*/
+  },
 
   viewDashboard: async (req, res) => {
     try {
@@ -653,36 +653,5 @@ module.exports = {
     } catch (error) {
       res.redirect(`/admin/booking/${id}`);
     }
-  },
-  viewUser: async (req, res) => {
-    try {
-      const category = await Users.find();
-      const alertMessage = req.flash('alertMessage');
-      const alertStatus = req.flash('alertStatus');
-      const alert = { message: alertMessage, status: alertStatus };
-      res.render('admin/user/view_category', {
-        category,
-        alert,
-        title: "Staycation | Category",
-       // user: req.session.user
-      });
-    } catch (error) {
-      res.redirect('/admin/user');
-    }
-  },
-
-  addUser: async (req, res) => {
-    try {
-      const { username, password } = req.body;
-      // console.log(name);
-      await Users.create({ username, password });
-      req.flash('alertMessage', 'Success Add Category');
-      req.flash('alertStatus', 'success');
-      res.redirect('/admin/user');
-    } catch (error) {
-      req.flash('alertMessage', `${error.message}`);
-      req.flash('alertStatus', 'danger');
-      res.redirect('/admin/user');
-    }
-  },
+  }
 };
